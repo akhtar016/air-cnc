@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {
-  faCaretUp,
   faCaretDown,
   faPlus,
   faMinus,
@@ -69,28 +68,54 @@ const HomePageBody = () => {
       imgCaption: "Nightlife-New York",
       rentPrice: "$35",
       ratings: 64,
-      yearlyIncome: "1200",
       imgLink: "https://i.ibb.co/c1Kc9SR/1.jpg",
       key: 1,
     },
     {
-      title: "Discover the city's party scene",
-      imgCaption: "Nightlife-New York",
-      rentPrice: "$35",
-      ratings: 64,
-      yearlyIncome: "1200",
-      imgLink: "https://i.ibb.co/c1Kc9SR/1.jpg",
+      title: "Tour with an Enthusiastic Local!",
+      imgCaption: "Entertainment-Vancouver",
+      rentPrice: "$3",
+      ratings: 3,
+      imgLink: "https://i.ibb.co/vXht425/8.jpg",
       key: 2,
     },
     {
-      title: "Discover the city's party scene",
-      imgCaption: "Nightlife-New York",
-      rentPrice: "$35",
-      ratings: 64,
-      yearlyIncome: "1200",
-      imgLink: "https://i.ibb.co/c1Kc9SR/1.jpg",
+      title: "Retro PhotoShoot in New York",
+      imgCaption: "Photo class - los angeles",
+      rentPrice: "$49",
+      ratings: 72,
+      imgLink: "https://i.ibb.co/pW5T0jf/2.jpg",
       key: 3,
     },
+  ];
+
+
+  const restaurantHome = [
+    {
+      title: "Unique Cob Cottage",
+      imgCaption: "Nightlife-New York",
+      rentPrice: "$128",
+      ratings: 284,
+      imgLink: "https://i.ibb.co/xmBm2LK/44.jpg",
+      key: 1,
+    },
+    {
+      title: "The Joshua Tree House",
+      imgCaption: "Nightlife-New York",
+      rentPrice: "$250",
+      ratings: 269,
+      imgLink: "https://i.ibb.co/tzBKjSV/55.jpg",
+      key: 2,
+    },
+    {
+      title: "A Pirate's Life For Me",
+      imgCaption: "Nightlife-New York",
+      rentPrice: "$209",
+      ratings: 140,
+      imgLink: "https://i.ibb.co/6nGvttP/66.jpg",
+      key: 3,
+    }
+    
   ];
 
   return (
@@ -137,7 +162,6 @@ const HomePageBody = () => {
                 </h6>
               </div>
               <div>
-                <FontAwesomeIcon icon={faCaretUp} />
                 <FontAwesomeIcon icon={faCaretDown} />
               </div>
             </div>
@@ -203,7 +227,7 @@ const HomePageBody = () => {
                 </button>
               </div>
               <div>
-                <button className="btn btn-success btn-lg btn-block">
+                <button className="btn btn-lg btn-block bg-success text-light">
                   <FontAwesomeIcon icon={faSearch} /> Search
                 </button>
               </div>
@@ -229,11 +253,11 @@ const HomePageBody = () => {
 
 
           <div className="d-flex justify-content-md-between mb-2">
-            <h4>Experiences</h4>
+            <h4>Homes</h4>
             <a href="/">See all</a>
           </div>
           <div className="row">
-            {restaurantExperience.map((hotelInfo) => (
+            {restaurantHome.map((hotelInfo) => (
               <div className="col-md-4 d-flex justify-content-md-between">
                 <HotelCardView
                   hotelInfo={hotelInfo}

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.scss";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -12,7 +13,7 @@ const Navbar = () => {
           <a href="/">Host your home</a>
           <a href="/">Host your experience</a>
           <a href="/">Help</a>
-          <a href="/">Log in</a>
+          <Link to="/login"><a href>Log in</a></Link>
           <a href="/" id="my-btn">Sign up</a>
         </div>
       </nav>

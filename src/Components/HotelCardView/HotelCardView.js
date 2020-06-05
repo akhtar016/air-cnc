@@ -14,7 +14,7 @@ const HotelCardView = (props) => {
       <h5>{title}</h5>
       <p>{rentPrice} per person</p>
       <div className="row">
-      <div className="ml-3">
+      <div className="ml-3 custom-icon">
       <FontAwesomeIcon icon={faStar} />
       <FontAwesomeIcon icon={faStar} />
       <FontAwesomeIcon icon={faStar} />

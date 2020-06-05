@@ -16,6 +16,7 @@ function App() {
         </Route>
 
         <Route path="/login">
+          <Navbar/>
           <Login/>
         </Route>
 
