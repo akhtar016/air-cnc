@@ -10,6 +10,7 @@ import {
   faMinus,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import HotelCardView from "../HotelCardView/HotelCardView";
 
 const HomePageBody = () => {
   const [arrivalDate, setArrivalDate] = useState(new Date());
@@ -18,12 +19,12 @@ const HomePageBody = () => {
   const [child, setChild] = useState(0);
   const [babies, setBabies] = useState(0);
 
-  let handleChangeArrival = (date) => {
-    setArrivalDate(date);
+  let handleChangeArrival = (dateArrival) => {
+    setArrivalDate(dateArrival);
   };
 
-  let handleChangeDeparture = (date) => {
-    setDepartureDate(date);
+  let handleChangeDeparture = (dateDeparture) => {
+    setDepartureDate(dateDeparture);
   };
 
   let adultGuestIncre = () => {
@@ -62,6 +63,36 @@ const HomePageBody = () => {
     }
   };
 
+  const restaurantExperience = [
+    {
+      title: "Discover the city's party scene",
+      imgCaption: "Nightlife-New York",
+      rentPrice: "$35",
+      ratings: 64,
+      yearlyIncome: "1200",
+      imgLink: "https://i.ibb.co/c1Kc9SR/1.jpg",
+      key: 1,
+    },
+    {
+      title: "Discover the city's party scene",
+      imgCaption: "Nightlife-New York",
+      rentPrice: "$35",
+      ratings: 64,
+      yearlyIncome: "1200",
+      imgLink: "https://i.ibb.co/c1Kc9SR/1.jpg",
+      key: 2,
+    },
+    {
+      title: "Discover the city's party scene",
+      imgCaption: "Nightlife-New York",
+      rentPrice: "$35",
+      ratings: 64,
+      yearlyIncome: "1200",
+      imgLink: "https://i.ibb.co/c1Kc9SR/1.jpg",
+      key: 3,
+    },
+  ];
+
   return (
     <div className="container">
       <div className="mb-4">
@@ -69,33 +100,40 @@ const HomePageBody = () => {
       </div>
       <div className="row">
         <div className="col-4">
-          <div className="shadow-sm p-4 mb-5 bg-white rounded">
+          <div className=" col-12 shadow-sm p-3 mb-3 bg-white rounded">
             <h6 className="text-uppercase font-weight-bold pl-2">Location</h6>
             <input
               type="text"
-              className="form-control border-top-0 border-right-0 border-left-0 rounded-0"
+              className="form-control border-0 rounded-0"
               placeholder="Add City, Landmark or Address"
             />
           </div>
 
-          <div className="col-8 shadow-sm p-3 mb-2 bg-white rounded">
-            <h6 className="font-weight-bold text-secondary pl-2">Arrival</h6>
-            <DatePicker selected={arrivalDate} onChange={handleChangeArrival} />
-          </div>
-          <div className="col-8 shadow-sm p-3 mb-5 bg-white rounded">
-            <h6 className="font-weight-bold text-secondary pl-2">Departure</h6>
-            <DatePicker
-              selected={departureDate}
-              onChange={handleChangeDeparture}
-            />
+          <div className="row d-flex justify-content-around mb-3">
+            <div className="col-5 shadow-sm p-3 bg-white rounded">
+              <h6 className="font-weight-bold text-secondary pl-2">Arrival</h6>
+              <DatePicker
+                selected={arrivalDate}
+                onChange={handleChangeArrival}
+              />
+            </div>
+            <div className="col-5 shadow-sm p-3 bg-white rounded">
+              <h6 className="font-weight-bold text-secondary pl-2">
+                Departure
+              </h6>
+              <DatePicker
+                selected={departureDate}
+                onChange={handleChangeDeparture}
+              />
+            </div>
           </div>
 
           <div>
-            <div className="row d-flex justify-content-between mb-1 shadow-sm p-4 bg-white rounded">
-              <div>
+            <div className="row d-flex justify-content-around mb-3 shadow-sm p-4 mr-1 ml-1 bg-white rounded">
+              <div className="custom-design">
                 <h6 className="text-secondary">Guests</h6>
                 <h6 className="text-uppercase font-weight-bold">
-                  2 Adults, 1 Child
+                  {adult} Adults, {child} Children, {babies} Babies
                 </h6>
               </div>
               <div>
@@ -103,7 +141,7 @@ const HomePageBody = () => {
                 <FontAwesomeIcon icon={faCaretDown} />
               </div>
             </div>
-            <div className="shadow-sm p-3 mb-3 bg-white rounded">
+            <div className="shadow-sm p-4 mb-3 bg-white rounded">
               <div className="row mb-5">
                 <div className="col-7">
                   <h6 className="text-uppercase font-weight-bold left-0">
@@ -157,19 +195,53 @@ const HomePageBody = () => {
                 </div>
               </div>
               <div className="d-flex justify-content-end">
-                <button type="button" class="btn btn-outline-success mt-3 mb-4">
+                <button
+                  type="button"
+                  className="btn btn-outline-success mt-3 mb-4"
+                >
                   Apply
                 </button>
               </div>
               <div>
-                <button className="btn btn-success btn-lg btn-block"><FontAwesomeIcon icon={faSearch}/> Search</button>
+                <button className="btn btn-success btn-lg btn-block">
+                  <FontAwesomeIcon icon={faSearch} /> Search
+                </button>
               </div>
             </div>
           </div>
         </div>
 
         <div className="col-8">
-          <h2>Hi there this is column eight</h2>
+          <div className="d-flex justify-content-md-between mb-2">
+            <h4>Experiences</h4>
+            <a href="/">See all</a>
+          </div>
+          <div className="row mb-4">
+            {restaurantExperience.map((hotelInfo) => (
+              <div className="col-md-4 d-flex justify-content-md-between">
+                <HotelCardView
+                  hotelInfo={hotelInfo}
+                  key={hotelInfo.key}
+                ></HotelCardView>
+              </div>
+            ))}
+          </div>
+
+
+          <div className="d-flex justify-content-md-between mb-2">
+            <h4>Experiences</h4>
+            <a href="/">See all</a>
+          </div>
+          <div className="row">
+            {restaurantExperience.map((hotelInfo) => (
+              <div className="col-md-4 d-flex justify-content-md-between">
+                <HotelCardView
+                  hotelInfo={hotelInfo}
+                  key={hotelInfo.key}
+                ></HotelCardView>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
